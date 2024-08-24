@@ -25,3 +25,5 @@ Route::get('autobots/{autobot}', [AutobotController::class, 'show']);
 Route::get('autobots/{autobot}/posts', [AutobotController::class, 'posts']);
 Route::get('posts/{post}', [PostController::class, 'show']);
 Route::get('posts/{post}/comments', [PostController::class, 'comments']);
+
+Route::get('/autobots/count', [AutobotController::class, 'autobotCount']);

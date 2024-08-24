@@ -21,4 +21,9 @@ class AutobotController extends Controller
     {
         return $autobot->posts()->paginate(10);
     }
+
+    public function autobotCount() 
+    {
+        return response()->json(['count' => Autobot::count()]);
+    }
 }

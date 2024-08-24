@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Autobot;
 use Illuminate\Support\Facades\Log;
 use Throwable;
+use App\Events\AutobotCreated;
 
 class GenerateAutobots implements ShouldQueue
 {
@@ -52,6 +53,8 @@ class GenerateAutobots implements ShouldQueue
                         'email' => $userData['email'],
                     ]);
 
+                    event(new AutobotCreated($autobot));
+                    
                     Log::info('Autobot created', ['autobot' => $autobot]);
 
                     
