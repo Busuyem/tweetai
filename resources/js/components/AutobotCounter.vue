@@ -24,6 +24,7 @@ export default {
     // Fetch initial count when the component is mounted
     axios.get('/api/autobots/count').then(response => {
       this.count = response.data.count;
+      console.log(response.data.count);
     });
   },
 };

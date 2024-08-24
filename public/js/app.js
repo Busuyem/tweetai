@@ -20870,6 +20870,7 @@ __webpack_require__.r(__webpack_exports__);
     // Fetch initial count when the component is mounted
     axios.get('/api/autobots/count').then(function (response) {
       _this.count = response.data.count;
+      console.log(response.data.count);
     });
   }
 });
@@ -21011,11 +21012,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 /* harmony import */ var _components_AutobotCounter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AutobotCounter.vue */ "./resources/js/components/AutobotCounter.vue");
+/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
+/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_4__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
 
+
+var pusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_4___default())('c907f1452cb06ff2375e', {
+  cluster: 'us2',
+  forceTLS: true
+});
+var channel = pusher.subscribe('autobots');
+channel.bind('count', function (data) {
+  console.log('Received data:', data);
+});
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
 app.component('autobot-counter', _components_AutobotCounter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
 app.use(_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
