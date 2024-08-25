@@ -44,9 +44,9 @@
     php artisan schedule:work
     ```
 
-10.  Run queue worker 
+10.  Start the job 
     ```bash
-    php artisan queue:work
+    php artisan schedule:work
     ```
 
 ## API Documentation
