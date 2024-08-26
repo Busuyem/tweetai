@@ -1,50 +1,48 @@
 # TweetAI APIs
 
-1. Clone the repository:
+## Setup
+
+1. **Clone the repository:**
     ```bash
     git clone https://github.com/Busuyem/tweetai.git
     cd tweetai
     ```
 
-2. Install dependencies:
+2. **Install dependencies:**
     ```bash
     composer install
+    npm install
     ```
 
-3. Set up the environment file:
+3. **Set up the environment file:**
     ```bash
     cp .env.example .env
     php artisan key:generate
     ```
 
-4. Configure your database in `.env`.
+4. **Configure your database in `.env`.**
 
-5. Run migrations:
+5. **Run migrations:**
     ```bash
     php artisan migrate
     ```
 
-6. Serve the application:
-    ```bash
-    php artisan serve
-    ```
-
-7. Serve the application:
-    ```bash
-    php artisan serve
-    ```
-
-8. Start npm 
+6. **Compile assets:**
     ```bash
     npm run dev
     ```
 
-9.  Start the job 
+7. **Start the application:**
+    ```bash
+    php artisan serve
+    ```
+
+8. **Start the scheduler (for jobs):**
     ```bash
     php artisan schedule:work
     ```
 
-10.  Start the job 
+9. **Start the queue worker (for queues):**
     ```bash
     php artisan queue:work
     ```
@@ -53,33 +51,32 @@
 
 ### Autobots Endpoints
 
-- Get the List of Autobots:
+- **Get the List of Autobots:**
     ```
     GET /api/autobots
     ```
 
-- GET an Autobot
+- **Get an Autobot by ID:**
     ```
     GET /api/autobots/:id
     ```
 
-- GET an Autobot Posts
+- **Get Posts of an Autobot:**
     ```
     GET /api/autobots/:id/posts
     ```
 
-- GET Posts By ID
+- **Get a Post by ID:**
     ```
     GET /api/posts/:id
     ```
 
-- GET Posts Comments
+- **Get Comments of a Post:**
     ```
     GET /api/posts/:id/comments
     ```
 
-- GET Autobots Counts
+- **Get Counts of Autobots:**
     ```
     GET /api/autobots/count
     ```
-
